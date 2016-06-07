@@ -37,7 +37,7 @@ Future methods will be: <br />
 
 # How to use it?
 Just download (for now) javasript files and add it to your projects javascript folder. Since it DOES NOT need any dependencies, you can add in any place you want (header is good though). First file must be ququ-core.js - 
-this is were the logic behind this framework lies and ququ-cs.js - is the file for your use of ququ framework (you can by all means not add second js file at all and write your javascript code in <script> tags, but 
+this is were the logic behind this framework lies and ququ-cs.js - is the file for your use of ququ framework (you can by all means not add second js file at all and write your javascript code in '<script>' tags, but 
 that would not be great a practice).
 
 # The way of the framework
@@ -45,5 +45,5 @@ There are single methods and chained methods. Simple methods are for making 1 st
 Chained methods are called by writing "qq". You can do something like this "qq.make('body', 'color: cyan').dynamic()". This way the elements in body will be blue-ish and the framework will add mobile styles for you, in e.g. if you don't want to go and write media queries and somehow calculate the distance from other elements, this will be done for you.
 
 # Method list
-qq - call chaing methods. qq.make('body', 'color: cyan').dynamic(); <br />
-make(name, styles) - add styles for some element. make('body', 'color: cyan'); <br />
+qq - call chaing methods. "qq.make('body', 'color: cyan').dynamic();" <br />
+make(name, styles) - add styles for some element. "make('body', 'color: cyan');" <br />
