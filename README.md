@@ -12,28 +12,28 @@ of styling is in good old fashioned css, but even now there are great frameworks
  of course) "make(element, padding: 10px).hover(styles).mobile().addTrigger().addEvent()". Well, now we can! This is work in progress, but if anyone wants to help me to make styling websites cool again, please join me.
 
 # What ququ does
-This framework can be used in places where jquery can't be. 
-It is a lightweight framework. 
-It doesn't need any additional programs, gems, whatnot to use it. 
-It helps you, the developer to make changes to the website as quickly as possible.
-It can be used as a replacements for your styles.css or all css files for that matter.
-If follows functional programming paradigm.
+This framework can be used in places where jquery can't be. <br />
+It is a lightweight framework. <br />
+It doesn't need any additional programs, gems, whatnot to use it.  <br />
+It helps you, the developer to make changes to the website as quickly as possible. <br />
+It can be used as a replacements for your styles.css or all css files for that matter. <br />
+If follows functional programming paradigm. <br />
 
 # What ququ does not
-It does not have a kitchen sink full of premade items like bootstrap.
-It does not have a grid system (yet).
-It does not have non mobile to mobile meniu conversion (yet).
+It does not have a kitchen sink full of premade items like bootstrap. <br />
+It does not have a grid system (yet). <br />
+It does not have non mobile to mobile meniu conversion (yet). <br />
 
 # What ququ will be in the future?
 My aim is not to make a javascript clone for css frameworks, but rather to make a platform for web developers to easily write css code and do much of the heavy lifting for the developers.
-Future methods will be:
-~ A way to work with brakepoints (media queries)
-~ Automatic mobile interface
-~ Triggers (onclick, etc) and events (on hover, etc) added to specific blocks
-~ Container and/or grid
-~ Conditional styles (condition? this_style : other_style)
-~ Added support for more browsers, in e.g. older mozilla uses textContent(now it uses innerText) while chrome uses innerText
-~ Control many elements at the same time
+Future methods will be: <br />
+~ A way to work with brakepoints (media queries) <br />
+~ Automatic mobile interface <br />
+~ Triggers (onclick, etc) and events (on hover, etc) added to specific blocks <br />
+~ Container and/or grid <br />
+~ Conditional styles (condition? this_style : other_style) <br />
+~ Added support for more browsers, in e.g. older mozilla uses textContent(now it uses innerText) while chrome uses innerText <br />
+~ Control many elements at the same time <br />
 
 # How to use it?
 Just download (for now) javasript files and add it to your projects javascript folder. Since it DOES NOT need any dependencies, you can add in any place you want (header is good though). First file must be ququ-core.js - 
@@ -46,5 +46,5 @@ Chained methods are called by writing "qq". You can do something like this "qq.m
 if you don't want to go and write media queries and somehow calculate the distance from other elements, this will be done for you.
 
 # Method list
-qq - call chaing methods. qq.make('body', 'color: cyan').dynamic();
-make(name, styles) - add styles for some element. make('body', 'color: cyan');
+qq - call chaing methods. qq.make('body', 'color: cyan').dynamic(); <br />
+make(name, styles) - add styles for some element. make('body', 'color: cyan'); <br />
