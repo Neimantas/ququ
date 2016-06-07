@@ -42,8 +42,7 @@ that would not be great a practice).
 
 # The way of the framework
 There are single methods and chained methods. Simple methods are for making 1 step manipulations, in e.g. "make('body', 'color: cyan')" will make all elements in body blue-ish.
-Chained methods are called by writing "qq". You can do something like this "qq.make('body', 'color: cyan').dynamic()". This way the elements in body will be blue-ish and the framework will add mobile styles for you, in e.g.
-if you don't want to go and write media queries and somehow calculate the distance from other elements, this will be done for you.
+Chained methods are called by writing "qq". You can do something like this "qq.make('body', 'color: cyan').dynamic()". This way the elements in body will be blue-ish and the framework will add mobile styles for you, in e.g. if you don't want to go and write media queries and somehow calculate the distance from other elements, this will be done for you.
 
 # Method list
 qq - call chaing methods. qq.make('body', 'color: cyan').dynamic(); <br />
