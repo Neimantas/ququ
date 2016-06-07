@@ -37,7 +37,7 @@ Future methods will be: <br />
 
 # How to use it?
 Just download (for now) javasript files and add it to your projects javascript folder. Since it DOES NOT need any dependencies, you can add in any place you want (header is good though). First file must be ququ-core.js - 
-this is were the logic behind this framework lies and ququ-cs.js - is the file for your use of ququ framework (you can by all means not add second js file at all and write your javascript code in '<script>' tags, but 
+this is were the logic behind this framework lies and ququ-cs.js - is the file for your use of ququ framework (you can by all means not add second js file at all and write your javascript code in \<script\> tags, but 
 that would not be great a practice).
 
 # The way of the framework
