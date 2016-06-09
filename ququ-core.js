@@ -3,11 +3,27 @@
 window.addEventListener('load', function(event){
 	//document.getElementsByTagName('body');
 	//console.log('running')
-	loadStyles();
+	//loadStyles();
 	
+	//On onload there should be a method to check the screen size and set the required media queries and do calculations for grid
 });	
 
+window.addEventListener('resize', function(event){
 
+	console.log('resizing...')
+	
+	//On resize the media queries and grid calculations should be recalculated
+});	
+
+/* Here goes ideas I could use
+	if (typeof args !== 'arguments') {
+        console.log('not a string param')
+		
+		return -1
+    }
+
+
+*/
 
 /*Single method calls*/
 
@@ -29,7 +45,7 @@ function style(args) {
 function loadStyles(targetElement, itemType, sets){
 	//var css = 'h1 { background: red; }',
 	
-		if(targetElement, itemType, sets != undefined){
+		//if(targetElement, itemType, sets != undefined){
 		var setItemType = getItemType(itemType, targetElement); 
 		console.log(itemType)
 		//console.log(setItemType)
@@ -43,7 +59,7 @@ function loadStyles(targetElement, itemType, sets){
 			style.styleSheet.cssText = css;
 		} else {
 		style.appendChild(document.createTextNode(css));
-}
+//}
 
 	body.appendChild(style);
 	}
@@ -105,7 +121,7 @@ function check(){
 }
 
     function addEvent(args){
-
+	
 	var args = Array.prototype.slice.call(arguments);
 	//console.log(args[0], args[1], args[2])
 	var checkIfElementExists = findElement(args[0]);
