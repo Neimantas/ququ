@@ -134,14 +134,19 @@ function check(){
 		//var string = testy addEventListener(args[1], function(event){ args[2]  }))
 		
 		//testy = eval(checkIfElementExists[0]);
-		console.log(checkIfElementExists[0])
+		//console.log(checkIfElementExists[0])
 		//eval(checkIfElementExists[0]).addEventListener('click', function() { console.log('clicked') }, false);
-		var buildFunc = 'function() { ' + args[2] + ' }, false )';
+		var buildFunc = 'function() { ' + args[2] + ' }, false';
 		buildFunc.replace(/"/g , "'");
 		buildFunc.replace(/'/g , '"');
-		console.log(buildFunc, args[1]);
-		var temps = eval(checkIfElementExists[0]);
-		temps.addEventListener(args[1], function() { console.log('clicked') }, false)
+		//console.log(buildFunc, args[1]);
+		//var temps = eval(checkIfElementExists[0]);
+		//console.log(temps)
+		//temps.addEventListener("'" + args[1] + "'", buildFunc)
+		//temps.addEventListener('click', function() { console.log('clicked')}, false)
+		//console.log("'" + args[1] + "'", buildFunc)
+		
+		script.text = 'window.addEventListener(' + "'" + args[1] + "'" + ',' + buildFunc + ')';	
 		
 		head.appendChild(script)
     }
