@@ -1,18 +1,16 @@
 /*On loads*/
 
 window.addEventListener('load', function(event){
-	//document.getElementsByTagName('body');
-	//console.log('running')
-	//loadStyles();
-	
 	//On onload there should be a method to check the screen size and set the required media queries and do calculations for grid
 });	
 
 window.addEventListener('resize', function(event){
-
-	console.log('resizing...')
 	
 	//On resize the media queries and grid calculations should be recalculated
+	width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	
+	resizeItems(width, height);
 });	
 
 /* Here goes ideas I could use
@@ -21,13 +19,24 @@ window.addEventListener('resize', function(event){
 		
 		return -1
     }
-
-
+	
+	//Need to add distinction between document events and window events
+// theFunction("John", "fireman");
+// theFunction.apply(undefined, ["Susan", "school teacher"]);
+// theFunction.call(undefined, "Claude", "mathematician");
+//function theFunction(name, profession) {
+   // console.log("My name is " + name + " and I am a " + profession + ".");
+//}
 */
+
+/*Set global vars*/
+
+var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
 /*Single method calls*/
 
-function style(args) {
+function form(args) {
   var args = Array.prototype.slice.call(arguments);
   var checkIfElementExists = findElement(args[0]);
   console.log(args)
@@ -43,14 +52,9 @@ function style(args) {
 //We can append head, because css should be read first, but for safe side AND because we dont want to see clutter, we put it near the end of body. 
 //head = document.head || document.getElementsByTagName('head')[0],head.appendChild(style);
 function loadStyles(targetElement, itemType, sets){
-	//var css = 'h1 { background: red; }',
-	
-		//if(targetElement, itemType, sets != undefined){
 		var setItemType = getItemType(itemType, targetElement); 
 		console.log(itemType)
-		//console.log(setItemType)
 		var css = setItemType + '{' + sets + '}';
-		//console.log(css);
 		body = document.body || document.getElementsByTagName('body')[0],
 		style = document.createElement('style');
 
@@ -59,7 +63,6 @@ function loadStyles(targetElement, itemType, sets){
 			style.styleSheet.cssText = css;
 		} else {
 		style.appendChild(document.createTextNode(css));
-//}
 
 	body.appendChild(style);
 	}
@@ -67,7 +70,7 @@ function loadStyles(targetElement, itemType, sets){
 
 function getItemType(itemType, targetElement){
 	var string = itemType;
-	console.log(string)
+	console.log(string + targetElement)
 	
 	if(string == 0) {
 		return string = '#' + targetElement;
@@ -98,15 +101,15 @@ function findElement(args, indeksas){
 	var methodArr = ['getElementById', 'getElementsByName', 'getElementsByTagName', 'getElementsByClassName'];
 	
 	if(step1 == 0 && step2 == 0 && step3 == 0 && step4 == 0){
-		console.log('no element');
+		//console.log('no element');
 		return -1;
 	}
 	
 	else {
-		console.log('found')
+		//console.log('found')
 		for(i=0; i < stepArr.length && i < methodArr.length; i++){
 			if(stepArr[i] == 1) {
-			console.log('element found')
+			//console.log('element found')
 			var indeksas = stepArr.indexOf(stepArr[i]);
 			var argas = "'" + args + "'";
 			var stringas = 'document.'+ methodArr[i] + '(' + argas + ')';
@@ -121,61 +124,78 @@ function check(){
 }
 
     function addEvent(args){
-	
-	var args = Array.prototype.slice.call(arguments);
-	//console.log(args[0], args[1], args[2])
-	var checkIfElementExists = findElement(args[0]);
-	//console.log(checkIfElementExists)
-	if(checkIfElementExists[0] != -1) {
-		head = document.head || document.getElementsByTagName('head')[0];
-		var script = document.createElement('script');
-		script.type = "text/javascript";
-		//script.text = ''
-		//var string = testy addEventListener(args[1], function(event){ args[2]  }))
-		
-		//testy = eval(checkIfElementExists[0]);
-		//console.log(checkIfElementExists[0])
-		//eval(checkIfElementExists[0]).addEventListener('click', function() { console.log('clicked') }, false);
-		var buildFunc = 'function() { ' + args[2] + ' }, false';
-		buildFunc.replace(/"/g , "'");
-		buildFunc.replace(/'/g , '"');
-		//console.log(buildFunc, args[1]);
-		//var temps = eval(checkIfElementExists[0]);
-		//console.log(temps)
-		//temps.addEventListener("'" + args[1] + "'", buildFunc)
-		//temps.addEventListener('click', function() { console.log('clicked')}, false)
-		//console.log("'" + args[1] + "'", buildFunc)
-		
-		script.text = 'window.addEventListener(' + "'" + args[1] + "'" + ',' + buildFunc + ')';	
-		
-		head.appendChild(script)
-    }
+		var args = Array.prototype.slice.call(arguments);
+		var checkIfElementExists = findElement(args[0]);
+
+		if(checkIfElementExists[0] != -1) {
+			head = document.head || document.getElementsByTagName('head')[0];
+			var script = document.createElement('script');
+			script.type = "text/javascript";
+			var buildFunc = 'function() { ' + args[2] + ' }, false';
+			buildFunc.replace(/"/g , "'");
+			buildFunc.replace(/'/g , '"');
+			
+			script.text = 'window.addEventListener(' + "'" + args[1] + "'" + ',' + buildFunc + ')';	
+			
+			head.appendChild(script)
+		}
 }
 
-//Need to add distinction between document events and window events
+function contain(args){
+	var args = Array.prototype.slice.call(arguments);
+    var checkIfElementExists = findElement(args[0]);
+	
+	console.log(checkIfElementExists[1])
+	console.log(args[0])
+	var setItemType = getItemType(checkIfElementExists[1], args[0])
+	console.log(setItemType)
+	
+	if(checkIfElementExists[0] != -1) {
+	//console.log(eval(checkIfElementExists[0]));
+	testy = eval(checkIfElementExists[0]);
+	
+	//var currWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	//var elWidth = currWidth * 0.8;
+	
+	var css = '@media(min-width:327px){' + setItemType + '{ ' + 'width:' + 327 * 0.90 + 'px; margin: 0 auto' +'}' + '}'  
+	//+  '@media(max-width:991px){' + setItemType + '{ ' + 'width:' + 992 * 0.80 + 'px; margin: 0 auto' +'}' + '}'   
+	//+ '@media(max-width:567px){' + setItemType + '{ ' + 'width:' + 567 * 0.50 + 'px; margin: 0 auto' +'}' + '}'
 
+//+ '@media(min-width:768px){' + setItemType + '{ ' + 'width:' + 767 * 0.50 + 'px; margin: 0 auto' +'}' + '}'
++ '@media(min-width:567px){' + setItemType + '{ ' + 'width:' + 567 * 0.90 + 'px; margin: 0 auto' +'}' + '}'
++ '@media(min-width:768px){' + setItemType + '{ ' + 'width:' + 768 * 0.90 + 'px; margin: 0 auto' +'}' + '}'
++ '@media(min-width:1200px){' + setItemType + '{ ' + 'width:' + 768 * 0.90 + 'px; margin: 0 auto' +'}' + '}'
 
-// theFunction("John", "fireman");
-// theFunction.apply(undefined, ["Susan", "school teacher"]);
-// theFunction.call(undefined, "Claude", "mathematician");
+//+ '@media(min-width:992px){' + setItemType + '{ ' + 'width:' + 992 * 0.60 + 'px; margin: 0 auto' +'}' + '}'
+//+ '@media(min-width:1200px){' + setItemType + '{ ' +  'width:' +  1200 * 0.90 + 'px; margin: 0 auto' +'}' + '}'
+//+ '@media(min-width:2000px){' + setItemType + '{ ' +  'width:' +  1200 * 0.70 + 'px; margin: 0 auto' +'}' + '}'
+	
+	
+	body = document.body || document.getElementsByTagName('body')[0],
+		style = document.createElement('style');
 
-//function theFunction(name, profession) {
-   // console.log("My name is " + name + " and I am a " + profession + ".");
-//}
+		style.type = 'text/css';
+		if (style.styleSheet){
+			style.styleSheet.cssText = css;
+		} else {
+		style.appendChild(document.createTextNode(css));
+}
+
+	body.appendChild(style);
+  }
+}
+
+/* Resize control */
+
+function resizeItems(width, height){
+	
+}
 
 /*Method Chain Calls*/
 
 var temp = '';
 
 var qq = {
-	
-	 // auto:(function(pars) {
-		 // console.log('runs');
-		 
-		 // return this
-	 // })(),
-	 
-	 // jeff: { thomas : 'jones'   },
 	
 	get: function(args){
 		var checkIfElementExists = findElement(args);
@@ -187,18 +207,10 @@ var qq = {
 		}
 	},
 	
-	// style: function(args1, args2){
-		// console.log('hey' , args1, args2)
-		// var args = [args1, args2];
-		// style.apply(this, args);
-		
-		// return this
-	// },
-	
-	style: function(args){
-		//console.log('hey' , args1, args2)
-		var args = [temp, args];
-		style.apply(this, args);
+	form: function(args1){
+		var args = [temp, args1];
+		console.log(args)
+		form.apply(this, args);
 		
 		return this
 	},
@@ -208,6 +220,13 @@ var qq = {
 		var args = [temp, args1, args2];
 		console.log(args)
 		addEvent.apply(this, args);
+		
+		return this
+	},
+	
+	contain: function(){
+		var args = [temp];
+		contain.apply(this, args);
 		
 		return this
 	}
