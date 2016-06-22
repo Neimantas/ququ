@@ -135,7 +135,10 @@ function check(){
 			buildFunc.replace(/"/g , "'");
 			buildFunc.replace(/'/g , '"');
 			
-			script.text = 'window.addEventListener(' + "'" + args[1] + "'" + ',' + buildFunc + ')';	
+			//eval(checkIfElementExists[0]).style.color = 'cyan'
+			//console.log(checkIfElementExists[0])
+			
+			script.text = checkIfElementExists[0] + '.addEventListener(' + "'" + args[1] + "'" + ',' + buildFunc + ')';	
 			
 			head.appendChild(script)
 		}
