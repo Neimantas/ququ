@@ -1,2 +1,6 @@
 //Uncomment lines bellow to check if it works
-//make('body', 'color: cyan;')
+//form('body', 'color: cyan;')
+
+//qq.get('container').contain().addEvent('click', 'console.log("clicked")').form('font-size: 10px;')
+
+qq.get('container').contain().addEvent('click', 'console.log("clicked")').form('font-size: 10px;')

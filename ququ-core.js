@@ -2,6 +2,8 @@
 
 window.addEventListener('load', function(event){
 	//On onload there should be a method to check the screen size and set the required media queries and do calculations for grid
+	
+	loadQuquCs();
 });	
 
 window.addEventListener('resize', function(event){
@@ -33,6 +35,16 @@ window.addEventListener('resize', function(event){
 
 var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+/* Load ququ-cs.js */
+
+function loadQuquCs(){
+	head = document.head || document.getElementsByTagName('head')[0];
+			var script = document.createElement('script');
+			script.type = "text/javascript";
+			script.src = 'ququ-cs.js'
+			head.appendChild(script)
+}
 
 /*Single method calls*/
 
