@@ -3,6 +3,7 @@
 window.addEventListener('load', function(event){
 	//On onload there should be a method to check the screen size and set the required media queries and do calculations for grid
 	
+	console.log('ququ-core is loaded')
 	loadQuquCs();
 });	
 
@@ -29,6 +30,20 @@ window.addEventListener('resize', function(event){
 //function theFunction(name, profession) {
    // console.log("My name is " + name + " and I am a " + profession + ".");
 //}
+
+//Rough function for columns. 
+//The idea is: first we contain all elements in container. Then we check for containers width and we search for col class name. Then we use that name, like col-5 and we use 5 parts out of xW elements width, so width / 10 * colName.
+
+var childs = document.getElementById('services').children
+var xW = document.getElementById('services').offsetWidth;
+var elementCount = childs.length
+for(i=0; i<childs.length; i++) {
+console.log(childs[i])
+childs[i].style.width = xW / elementCount * 0.99 + 'px'
+childs[i].style.float = 'left'
+     //document.querySelectorAll(childs[i])
+}
+
 */
 
 /*Set global vars*/
@@ -205,6 +220,29 @@ function contain(args){
 function resizeItems(width, height){
 	
 }
+
+function resetAll(){
+	var normalizeElements = 'html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, '
+	+ 'dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; '
+	+ 'padding: 0; border: 0; outline: 0; font-size: 100%; font: inherit; vertical-align: baseline; } article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } '
+	+ 'blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; } ins { text-decoration: none; } del { text-decoration: line-through; } table { border-collapse: collapse; border-spacing: 0; }';
+
+	var setDefault = 'body * { background-color: white; color: black}';
+	
+	var css = normalizeElements + setDefault;
+		body = document.body || document.getElementsByTagName('body')[0],
+		style = document.createElement('style');
+
+		style.type = 'text/css';
+		if (style.styleSheet){
+			style.styleSheet.cssText = css;
+		} else {
+		style.appendChild(document.createTextNode(css));
+}
+
+	body.appendChild(style);
+	
+	}
 
 /*Method Chain Calls*/
 
